@@ -152,4 +152,6 @@ return $this->hasOneThrough(Location::class, Profile::class);
 
 24) Vista de Perfil Completa (Videos y Posts del Usuario)
 
-25) 
+25) Vista Level (uno a muchos a través de...) Has Many Through 
+
+26) Resumen final del Curso Eloquent ORM

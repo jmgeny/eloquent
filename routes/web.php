@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 });
 
+// Profile
 Route::get('/profile/{id}', function ($id) {
 
 	$user = App\User::find($id);
@@ -40,3 +41,26 @@ Route::get('/profile/{id}', function ($id) {
 	]);
 
 })->name('profile');
+
+//Level
+
+Route::get('/level/{id}', function ($id) {
+
+	$level = App\Level::find($id);
+
+	$posts = $level->posts()
+				->with('category','image','tags')
+				->withCount('comments')->get();
+			//utilizamos el metodo post y que vengan con los comentarios. get() traeme toda esta consulta
+
+	$videos = $level->videos()
+				->with('category','image','tags')
+				->withCount('comments')->get();
+
+	return view('level', [
+		'level' => $level,
+		'posts' => $posts,
+		'videos' => $videos
+	]);
+
+})->name('level');

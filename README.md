@@ -141,3 +141,15 @@ return $this->hasOneThrough(Location::class, Profile::class);
 18) Factory en Laravel
 
 19) Seeder de Usuarios (Profile, Location, Image & Groups) 
+
+20) Seeder de Posts y Videos (Category, Tags & Comments) 
+
+21) Datos polimorficos
+
+22) Vista de Perfil de Usuario
+
+23) Vista de Perfil de Usuario con diseño en Bootstrap 4
+
+24) Vista de Perfil Completa (Videos y Posts del Usuario)
+
+25) 

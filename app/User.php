@@ -39,7 +39,7 @@ class User extends Authenticatable
     
     public function profile() {
         
-        return $this->hasOne(Profele::class);
+        return $this->hasOne(Profile::class);
         //tengo un Profile
     }  
 
@@ -76,4 +76,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function image()
+    {
+                    //es un hasMany polimorfico 
+        return $this->morphOne(Image::class, 'imageable');
+                    //tiene muchos Comments 
+    }  
 }

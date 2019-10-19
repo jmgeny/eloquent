@@ -19,3 +19,24 @@ Route::get('/', function () {
     return view('welcome', ['users' => $users]);
 
 });
+
+Route::get('/profile/{id}', function ($id) {
+
+	$user = App\User::find($id);
+
+	$posts = $user->posts()
+				->with('category','image','tags')
+				->withCount('comments')->get();
+			//utilizamos el metodo post y que vengan con los comentarios. get() traeme toda esta consulta
+
+	$videos = $user->videos()
+				->with('category','image','tags')
+				->withCount('comments')->get();
+
+	return view('profile', [
+		'user' => $user,
+		'posts' => $posts,
+		'videos' => $videos
+	]);
+
+})->name('profile');
